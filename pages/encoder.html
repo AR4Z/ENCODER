@@ -17,20 +17,24 @@
             <div>
                 <form>
                     <label for="code">Seleccione</label>
-                    <select name="code" id="code">
-                      <option>Base64</option>
-                      <option>Binario</option>
-                      <option>Unicode</option>
+                    <select name="code" id="mode">
+                      <option value="base64">Base64</option>
+                      <option value="url">url</option>
+                      <option value="unicode">Unicode</option>
                     </select>
                   </form>
             </div>
             <div>
-              <h3>Codificar base64</h3>
-              <textarea name="encoder" id="fromTextArea" cols="30" rows="10"></textarea>
+              <h3 id="headEncoder">
+                Codificar base64
+              </h3>
+              <textarea name="encoder" id="encoderTextArea" cols="30" rows="10"></textarea>
             </div>
             <div>
-              <h3>Decodificar base64</h3>
-              <textarea name="decoder" id="toTextArea" cols="30" rows="10"></textarea>
+              <h3 id="headDecoder">
+                Decodificar base64
+              </h3>
+              <textarea name="decoder" id="decoderTextArea" cols="30" rows="10"></textarea>
             </div>
         </div>
         <div id="result">
@@ -45,7 +49,11 @@
       Made with love by Orlando Hernández for 
       <a href="https://www.holbertonschool.com">
         <img src="../img/holberton-logo.png" alt="Holberton School Logo"/>
-      </a> 
+      </a>
+      <script src="../js/main.js"></script>
+      <script type="text/javascript">
+        const s = new Encoder();
+      </script>
     </footer>
   </body>
 </html>
