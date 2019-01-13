@@ -2,6 +2,7 @@ class Encoder {
   constructor() {
     this.encoderTextArea = document.getElementById('encoderTextArea');
     this.decoderTextArea = document.getElementById('decoderTextArea');
+    this.resultTextArea = document.getElementById('resultTextArea');
     this.result = document.getElementById('result');
     this.selectMode = document.getElementById('mode');
     this.headsTextAreaEncoder = document.getElementById('headEncoder');
@@ -38,13 +39,13 @@ class Encoder {
   _addChangeDecoderTextArea() {
     this.decoderTextArea.addEventListener('change', (e) => {
 
-      this.result.textContent = this.decoder(e.target.value);
+      this.resultTextArea.value = this.decoder(e.target.value);
     })
   }
 
   _addChangeEncoderTextArea() {
     this.encoderTextArea.addEventListener('change', (e) => {
-      this.result.textContent = this.encoder(e.target.value);
+      this.resultTextArea.value = this.encoder(e.target.value);
     })
   }
 
@@ -85,6 +86,7 @@ class Encoder {
       case 'base64':
         {
           textEncoder = btoa(text);
+          break;
         }
 
       case 'url':
@@ -92,6 +94,7 @@ class Encoder {
           for (let i = 0; i < text.length; i++) {
             textEncoder += "%" + text[i].charCodeAt(0).toString(16);
           }
+          break;
         }
 
       case 'unicode':
@@ -105,6 +108,7 @@ class Encoder {
             }
             textEncoder += "\\u" + binchar;
           }
+          break;
         }
     }
 

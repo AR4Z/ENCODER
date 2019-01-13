@@ -1,0 +1,67 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background: #F8F8F8;
+}
+
+main  {
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  margin-top: 28px;
+}
+
+main > article {
+  flex: 2;
+  overflow-y: auto;
+}
+
+main > aside {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.button {
+  color: #ffffff !important;
+  text-transform: uppercase;
+  background: #f6b93b;
+  padding: 10px;
+  border: 4px solid #494949 !important;
+  border-radius: 6px;
+  border-color: #f6b93b !important;
+  display: inline-block;
+  text-decoration: none;
+}
+
+#holbertonlogo {
+  width: 100px;
+}
+
+header {
+  padding:inherit;
+  border-bottom: inherit;
+}
+
+p {
+  line-height: 25px;
+}
+
+footer > p {
+  text-align: center;
+}
+
+#buttonContainer {
+  text-align: center;
+}
+
+#decoderContainer {
+  float: right;
+}
+
+.textarea_encoders {
+  resize: none;
+}
+
+#containerResult {
+  margin-top: 10px;
+}

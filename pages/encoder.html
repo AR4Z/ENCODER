@@ -1,59 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <title>
-      ENCODER
-    </title>
-    <meta charset="UTF-8">
-  </head>
-  <body>
+
+<head>
+  <title>
+    DE/ENCODER
+  </title>
+  <meta charset="UTF-8">
+  <link href="https://www.holbertonschool.com/level2/holberton.css" rel="stylesheet">
+  <link href="../css/styles.css" rel="stylesheet">
+</head>
+
+<body class="works_on_smartphone">
     <header>
-      <h1>ENCODER</h1>
-    </header>
-    <main>
-      <article>
-        <h2>Conversor</h2>
+        <h1>DE/ENCODER</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="../index.html">Home</a>
+            </li>
+            <li>
+              <a href="#">Conversor</a>
+            </li>
+            <li>
+              <a href="aboutme.html">Sobre mí</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+  <main>
+    <article>
+      <h2>Conversor</h2>
+      <div>
         <div>
-            <div>
-                <form>
-                    <label for="code">Seleccione</label>
-                    <select name="code" id="mode">
-                      <option value="base64">Base64</option>
-                      <option value="url">url</option>
-                      <option value="unicode">Unicode</option>
-                    </select>
-                  </form>
-            </div>
-            <div>
-              <h3 id="headEncoder">
-                Codificar base64
-              </h3>
-              <textarea name="encoder" id="encoderTextArea" cols="30" rows="10"></textarea>
-            </div>
-            <div>
-              <h3 id="headDecoder">
-                Decodificar base64
-              </h3>
-              <textarea name="decoder" id="decoderTextArea" cols="30" rows="10"></textarea>
-            </div>
+          <form>
+            <label for="mode">Seleccione</label>
+            <select name="mode" id="mode">
+              <option value="base64">Base64</option>
+              <option value="url">url</option>
+              <option value="unicode">Unicode</option>
+            </select>
+          </form>
         </div>
-        <div id="result">
-          Result
+        <div id="decoderContainer">
+          <h3 id="headEncoder">
+            Codificar base64
+          </h3>
+          <textarea name="encoder" id="encoderTextArea" class="textarea_encoders" cols="40" rows="15" aria-label="Codificar a base 64"></textarea>
         </div>
-      </article>
-    </main>
+        <div id="encoderContainer">
+          <h3 id="headDecoder">
+            Decodificar base64
+          </h3>
+          <textarea name="decoder" id="decoderTextArea" class="textarea_encoders" cols="40" rows="15" aria-label="Decodificar base 64"></textarea>
+        </div>
+      </div>
+      <div id="containerResult">
+        <h3>Resultado</h3>
+        <textarea name="result" class="textarea_encoders" id="resultTextArea" readonly="" cols="90" rows="15" aria-label="resultado"></textarea>
+      </div>
+    </article>
     <aside>
       Comments
     </aside>
-    <footer>
-      Made with love by Orlando Hernández for 
+  </main>
+  <footer>
+    <p>
+      Made with <span style="color: #e25555;">&#9829;</span> by Orlando Hernández for
       <a href="https://www.holbertonschool.com">
-        <img src="../img/holberton-logo.png" alt="Holberton School Logo"/>
+        <img id="holbertonlogo" src="../img/holberton-logo.png" alt="Holberton School Logo" />
       </a>
-      <script src="../js/main.js"></script>
-      <script type="text/javascript">
-        const s = new Encoder();
-      </script>
-    </footer>
-  </body>
+    </p>
+
+    <script src="../js/main.js"></script>
+    <script>
+      const s = new Encoder();
+    </script>
+  </footer>
+</body>
+
 </html>
