@@ -7,6 +7,7 @@ class Encoder {
     this.selectMode = document.getElementById('mode');
     this.headsTextAreaEncoder = document.getElementById('headEncoder');
     this.headsTextAreaDecoder = document.getElementById('headDecoder');
+    this.alertErrorDecode = document.getElementById('alertErrorDecode');
     this.mode = 'base64';
 
     this._addChangeDecoderTextArea();
@@ -37,16 +38,37 @@ class Encoder {
   }
 
   _addChangeDecoderTextArea() {
-    this.decoderTextArea.addEventListener('change', (e) => {
-
-      this.resultTextArea.value = this.decoder(e.target.value);
-    })
+    const funChange = (e) => {
+      const nameModes = {
+        base64: 'Base 64',
+        url: 'URL',
+        unicode: 'Unicode'
+      }
+      this.decoder(e.target.value).then((textDecoder) => {
+        this.alertErrorDecode.style.display = 'none';
+        this.resultTextArea.value = textDecoder;
+      }).catch(() => {
+        this.resultTextArea.value = '';
+        this.alertErrorDecode.textContent = `Ingrese una cadena codificada en ${ nameModes[this.mode] } válida`
+        this.alertErrorDecode.style.display = '';
+      })
+    }
+    this.decoderTextArea.addEventListener('change', funChange);
+    this.decoderTextArea.addEventListener('keyup', funChange);
+    this.decoderTextArea.addEventListener('paste', funChange);
+    this.decoderTextArea.addEventListener('blur', funChange);
+    this.decoderTextArea.addEventListener('focus', funChange);
   }
 
   _addChangeEncoderTextArea() {
-    this.encoderTextArea.addEventListener('change', (e) => {
+    const funChange = (e) => {
       this.resultTextArea.value = this.encoder(e.target.value);
-    })
+    }
+    this.encoderTextArea.addEventListener('change', funChange);
+    this.encoderTextArea.addEventListener('keyup', funChange);
+    this.encoderTextArea.addEventListener('paste', funChange);
+    this.encoderTextArea.addEventListener('blur', funChange);
+    this.encoderTextArea.addEventListener('focus', funChange);
   }
 
   decoder(text) {
@@ -55,28 +77,39 @@ class Encoder {
     switch (this.mode) {
       case 'base64':
         {
-          textDecoder = atob(text);
-          break;
+          return new Promise((resolve, reject) => {
+            try {
+              textDecoder = atob(text);
+            } catch {
+              return reject();
+            }
+            return resolve(textDecoder);
+          })
         }
-
       case 'url':
         {
-          textDecoder = text.replace(/%([a-zA-Z0-9]{2})/g, function (match) {
-            return String.fromCharCode(parseInt(match.slice(1), 16))
-          });
-          break;
+          return new Promise((resolve, reject) => {
+            try {
+              textDecoder = text.replace(/%([a-zA-Z0-9]{2})/g, (match) => String.fromCharCode(parseInt(match.slice(1), 16)));
+            } catch {
+              return reject();
+            }
+            return resolve(textDecoder);
+          })
         }
 
       case 'unicode':
         {
-          textDecoder = text.replace(/(\\u[0-9a-fA-F]{4})/g, function (match) {
-            return String.fromCharCode(parseInt(match.slice(2), 16))
-          });
-          break;
+          return new Promise((resolve, reject) => {
+            try {
+              textDecoder = text.replace(/(\\u[0-9a-fA-F]{4})/g, (match) => String.fromCharCode(parseInt(match.slice(2), 16)));
+            } catch {
+              return reject();
+            }
+            return resolve(textDecoder);
+          })
         }
     }
-
-    return textDecoder;
   }
 
   encoder(text) {
@@ -111,7 +144,6 @@ class Encoder {
           break;
         }
     }
-
     return textEncoder;
   }
 }

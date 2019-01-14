@@ -65,3 +65,14 @@ footer > p {
 #containerResult {
   margin-top: 10px;
 }
+
+#active {
+  text-decoration: underline;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  margin-bottom: 15px;
+}
