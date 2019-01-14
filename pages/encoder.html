@@ -22,6 +22,9 @@
               <a href="#">Conversor</a>
             </li>
             <li>
+              <a href="../tweets.html">Tweets</a>
+            </li>
+            <li>
               <a href="aboutme.html">Sobre mí</a>
             </li>
           </ul>
@@ -43,15 +46,15 @@
         </div>
         <div id="decoderContainer">
           <h3 id="headEncoder">
-            Codificar base64
+            Codificar a Base 64
           </h3>
-          <textarea name="encoder" id="encoderTextArea" class="textarea_encoders" cols="40" rows="15" aria-label="Codificar a base 64"></textarea>
+          <textarea name="encoder" id="encoderTextArea" class="textarea_encoders" cols="40" rows="15" aria-label="Codificar a base 64" placeholder="Escribe lo que quieras codificar"></textarea>
         </div>
         <div id="encoderContainer">
           <h3 id="headDecoder">
-            Decodificar base64
+            Decodificar Base 64
           </h3>
-          <textarea name="decoder" id="decoderTextArea" class="textarea_encoders" cols="40" rows="15" aria-label="Decodificar base 64"></textarea>
+          <textarea name="decoder" id="decoderTextArea" class="textarea_encoders" cols="40" rows="15" aria-label="Decodificar base 64" placeholder="Escribe lo que quieras decodificar"></textarea>
         </div>
       </div>
       <div id="containerResult">
@@ -60,7 +63,18 @@
       </div>
     </article>
     <aside>
-      Comments
+      <div id="disqus_thread"></div>
+            <script>
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document,
+                    s = d.createElement('script');
+                s.src = 'https://mywebsiteforhs.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+            </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+          Disqus.</a></noscript>
     </aside>
   </main>
   <footer>

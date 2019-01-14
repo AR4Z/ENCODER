@@ -18,16 +18,16 @@ class Encoder {
     this.selectMode.addEventListener('change', (e) => {
       const textHeads = {
         base64: {
-          encoder: 'Codificar base64',
-          decoder: 'Decodificar base64'
+          encoder: 'Codificar a Base 64',
+          decoder: 'Decodificar Base 64'
         },
         url: {
-          encoder: 'Codificar url',
-          decoder: 'Decoficiar url'
+          encoder: 'Codificar a URL',
+          decoder: 'Decodificar URL'
         },
         unicode: {
-          encoder: 'Codificar unicode',
-          decoder: 'Deodificar unicode'
+          encoder: 'Codificar a Unicode',
+          decoder: 'Decodificar Unicode'
         }
       }
       this.mode = e.target.value;
